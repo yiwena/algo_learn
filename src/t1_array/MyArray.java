@@ -1,4 +1,4 @@
-package array;
+package t1_array;
 
 import java.util.Arrays;
 
