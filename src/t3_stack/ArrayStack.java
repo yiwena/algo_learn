@@ -19,12 +19,21 @@ public class ArrayStack<T> {
         size = 0;
     }
     //入栈
-    public boolean push() {
-        return false;
+    public boolean push(T data) {
+        if (isFull()) {
+            return false;
+        }
+        items[size] = data;
+        size++;
+        return true;
     }
     //出栈
     public T poll() {
-        return null;
+        if (isEmpty()) {
+            return null;
+        }
+        size--;
+        return items[size];
     }
 
     public boolean isEmpty() {
@@ -32,5 +41,19 @@ public class ArrayStack<T> {
     }
     public boolean isFull() {
         return size == capacity;
+    }
+
+    public static void main(String[] args) {
+        ArrayStack<Integer> arrayStack = new ArrayStack<>(5);
+        arrayStack.push(1);
+        arrayStack.push(2);
+        arrayStack.push(3);
+        arrayStack.push(4);
+        arrayStack.push(5);
+        System.out.println(arrayStack.poll());
+        System.out.println(arrayStack.poll());
+        System.out.println(arrayStack.poll());
+        System.out.println(arrayStack.poll());
+        System.out.println(arrayStack.poll());
     }
 }
